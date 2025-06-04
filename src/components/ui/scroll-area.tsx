@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -13,8 +14,12 @@ const ScrollArea = React.forwardRef<
     ref={ref}
     className={cn("relative overflow-hidden", className)}
     {...props}
+    suppressHydrationWarning // Added to handle dir attribute mismatch
   >
-    <ScrollAreaPrimitive.Viewport className="h-full w-full rounded-[inherit]">
+    <ScrollAreaPrimitive.Viewport 
+      className="h-full w-full rounded-[inherit]"
+      suppressHydrationWarning // Added to handle injected style tag mismatch
+    >
       {children}
     </ScrollAreaPrimitive.Viewport>
     <ScrollBar />
@@ -39,6 +44,7 @@ const ScrollBar = React.forwardRef<
       className
     )}
     {...props}
+    suppressHydrationWarning // Also good practice for scrollbar parts
   >
     <ScrollAreaPrimitive.ScrollAreaThumb className="relative flex-1 rounded-full bg-border" />
   </ScrollAreaPrimitive.ScrollAreaScrollbar>
