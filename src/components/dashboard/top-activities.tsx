@@ -1,3 +1,4 @@
+
 "use client";
 
 import {
@@ -47,34 +48,36 @@ function ActivityList({ items }: { items: ActivityItem[] }) {
   );
 }
 
-export function TopActivities() {
+export function TopApplicationsCard() {
   return (
-    <>
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center">
-            <TerminalSquare className="h-5 w-5 mr-2 text-primary" />
-            Top Applications
-          </CardTitle>
-          <CardDescription>Most frequently used applications.</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ActivityList items={topAppsData} />
-        </CardContent>
-      </Card>
+    <Card>
+      <CardHeader>
+        <CardTitle className="flex items-center">
+          <TerminalSquare className="h-5 w-5 mr-2 text-primary" />
+          Top Applications
+        </CardTitle>
+        <CardDescription>Most frequently used applications.</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <ActivityList items={topAppsData} />
+      </CardContent>
+    </Card>
+  );
+}
 
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center">
-            <ListChecks className="h-5 w-5 mr-2 text-primary" />
-            Top Window Titles
-          </CardTitle>
-          <CardDescription>Most frequent window titles.</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ActivityList items={topTitlesData} />
-        </CardContent>
-      </Card>
-    </>
+export function TopWindowTitlesCard() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="flex items-center">
+          <ListChecks className="h-5 w-5 mr-2 text-primary" />
+          Top Window Titles
+        </CardTitle>
+        <CardDescription>Most frequent window titles.</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <ActivityList items={topTitlesData} />
+      </CardContent>
+    </Card>
   );
 }
